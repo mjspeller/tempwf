@@ -14,8 +14,9 @@ jobs:
     - name: Create matrix
       id: create_matrix
       run: |
-        MATRIX_JSON=$(jq -r '. | to_entries | map({(.key): .value}) | .[]' .github/workflows/inputs.json)
+        MATRIX_JSON=$(jq -r '. | to_entries | map({(.key): .value}) | .[]' inputs.json)
         echo "::set-output name=matrix::${MATRIX_JSON}"
+      working-directory: .github/workflows
 
   job1:
     needs: build
