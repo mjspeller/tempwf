@@ -7,16 +7,28 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    - name: Install dependencies
-      run: npm ci
-    - name: Run script
-      run: node script.js
 
-  # job1:
+    - name: Install jq
+      run: sudo apt-get install jq
+
+    - name: Create matrix
+      id: create_matrix
+      run: |
+        MATRIX_JSON=$(jq -r '. | to_entries | map({(.key): .value}) | .[]' inputs.json)
+        echo "::set-output name=matrix::${MATRIX_JSON}"
+
+  job1:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{fromJson(needs.build.outputs.matrix)}}
+    steps:
+    - run: echo ${{ matrix.APPLICATION_NAME }}
+    - run: echo ${{ matrix.CONNECTOR_TYPE }}
+
+
+
+    # ... and so on for the other variables  # job1:
   #   runs-on: ubuntu-latest
   #   outputs:
   #     matrix: ${{ steps.set-matrix.outputs.matrix }}
