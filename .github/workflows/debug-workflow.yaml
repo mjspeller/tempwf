@@ -15,5 +15,22 @@ jobs:
     strategy:
       matrix: ${{fromJson(needs.job1.outputs.matrix)}}
     steps:
-    - run: echo ${{ matrix.project }}
-    - run: echo ${{ matrix.config }}
+    - run: echo ${{ matrix.APPLICATION_NAME }}
+    - run: echo ${{ matrix.CONNECTOR_TYPE }}
+    - run: echo ${{ matrix.DB_HOST }}
+    - run: echo ${{ matrix.DB_LOGIN_ID }}
+    - run: echo ${{ matrix.DB_NAME }}
+    - run: echo ${{ matrix.DB_PASSWORD }}
+    - run: echo ${{ matrix.DB_PORT }}
+    - run: echo ${{ matrix.EAI }}
+    - run: echo ${{ matrix.INVENTORY_DB_HOST }}
+    - run: echo ${{ matrix.INVENTORY_DB_NAME }}
+    - run: echo ${{ matrix.INVENTORY_DB_PASSWORD }}
+    - run: echo ${{ matrix.INVENTORY_DB_PORT }}
+    - run: echo ${{ matrix.INVENTORY_DB_USER }}
+    - run: echo ${{ matrix.MASKING_ENGINE_PASSWORD }}
+    - run: echo ${{ matrix.MASKING_ENGINE_URL }}
+    - run: echo ${{ matrix.MASKING_ENGINE_USER }}
+    - run: echo ${{ matrix.POSTGRES_DB }}
+    - run: echo ${{ matrix.POSTGRES_PORT }}
+    - run: echo ${{ matrix.SCHEMA_NAME }}
