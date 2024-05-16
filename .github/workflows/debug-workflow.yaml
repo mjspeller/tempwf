@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [10]
+        version: [10, mpod]
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
