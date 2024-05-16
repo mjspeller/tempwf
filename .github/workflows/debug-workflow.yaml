@@ -1,16 +1,20 @@
+name: My GitHub Action Workflow
+
 on:
-    workflow_dispatch:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    masking:
-        runs-on: ubuntu-latest
-        steps:
-            - run: |
-                  echo '::add-mask::test'
-                  echo This is a test
+  example_matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [10]
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
 
 # name: build
 # on: push
