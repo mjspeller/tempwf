@@ -1,18 +1,37 @@
-name: Manual Run
+name: PR_Comment
 
-on:
-  workflow_dispatch:
+on: pull_request
 
 jobs:
-  manual-run:
+  example_comment_pr:
     runs-on: ubuntu-latest
+    name: An example job to comment a PR
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Print Hello World!
-        run: |
-          echo "Hello, world!"
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Hello world ! :wave:
+
+
+
+
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   manual-run:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Print Hello World!
+#         run: |
+#           echo "Hello, world!"
 
 # name: My GitHub Action Workflow
 
