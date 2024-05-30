@@ -16,6 +16,7 @@ jobs:
           message: |
             Hello world ! :wave:
           pr_number: 2
+          GITHUB_TOKEN: ${{ secrets.PAT }}
 
 
 
