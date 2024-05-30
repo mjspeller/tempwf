@@ -3,7 +3,7 @@ name: Greet
 on:
   workflow_call:
     secrets:
-      PAT:
+      GITHUB_TOKEN:
         required: true
 
 jobs:
