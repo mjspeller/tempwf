@@ -1,21 +1,21 @@
-# name: PR_Comment
+name: PR_Comment
 
-# on: pull_request
+on: pull_request
 
-# jobs:
-#   example_comment_pr:
-#     runs-on: ubuntu-latest
-#     name: An example job to comment a PR
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
+jobs:
+  example_comment_pr:
+    runs-on: ubuntu-latest
+    name: An example job to comment a PR
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-#       - name: Comment PR
-#         uses: thollander/actions-comment-pull-request@v2
-#         with:
-#           message: |
-#             Hello world ! :wave:
-#           pr_number: 1
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Hello world ! :wave:
+          pr_number: 2
 
 
 
@@ -50,7 +50,7 @@
 #         version: [$SCHEMA]
 #     steps:
 #     - name:
-#       run: | 
+#       run: |
 #         [list]$Schema = psql login <UN> <PW> get schemas
 #     - name: Checkout code
 #       uses: actions/checkout@v2
