@@ -12,14 +12,11 @@ jobs:
     steps:
       - name: Say Hi
         run: echo "This is the profile job"
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-          cache: pip
-      - name: Create file and write to it
-        run: |
-          python -c "with open('myfile.txt', 'w') as f: f.write('hi')"
+          python-version: '3.10'
+      - run: python my_script.py
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
