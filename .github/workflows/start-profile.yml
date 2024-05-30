@@ -26,16 +26,16 @@ jobs:
           repository: ${{ env.MASKING_REPO }}
           ref: main
           token: ${{ secrets.PAT }}
-          path: my-tools
+          path: ${{ github.workspace }}/my-tools
       - name: Run Script
         run: |
           pwd
           ls -la
           cat README.md
-          cd ..
+          cd my-tools
           ls -la
-          cd ..
-          ls -la
+          echo ${{ github.workspace }}
+          python --version
           # python scripts/my_script.py
       # - name: Upload Artifact
       #   uses: actions/upload-artifact@v4
