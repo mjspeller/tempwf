@@ -3,7 +3,7 @@ on:
   push:
     branches: ["feature/workflow"]
   pull_request:
-    branches: ["chore/try-pipeline"]
+    branches: ["feature/workflow"]
   workflow_dispatch:
     inputs:
       ENV:
@@ -13,14 +13,13 @@ on:
           - DEV
           - SIT
 
-github ations checkout:
+github actions checkout:
   - name: Checkout
     uses: actions/checkout@v4
     with:
       path: feature/workflow
 
-  - name: Run Delphix Profiling
-    uses: ./ # When App Teams use this action - uses: FedEx/eai-3535610-delphix-continuous-compliance-automation
-    with:
-      ENV: ${{ inputs.ENV }}
-      csv-name: "my-csv-profiling"
+  - name: call start
+    uses: ./ # call the start yaml
+    run: |
+      echo "hi call start"
