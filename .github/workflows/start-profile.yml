@@ -13,18 +13,20 @@ jobs:
   profile:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Profile
+        run: echo "This is the profile job"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Checkout masking repo
         uses: actions/checkout@v4
         with:
+          clean: false
           repository: ${{ env.MASKING_REPO }}
           ref: main
           token: ${{ secrets.PAT }}
-      # - name: Profile
-      #   run: echo "This is the profile job"
-      # - uses: actions/checkout@v4
-      # - uses: actions/setup-python@v5
-      #   with:
-      #     python-version: '3.10'
+          path: my-tools
       - name: Run Script
         run: |
           pwd
