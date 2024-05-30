@@ -1,16 +1,16 @@
-workflow:
-  common:
-    application: printergateway
-    environment: dev
-    connector_type: postgres
-    kv_name: kv2321831283821f
-      db_host: delphix-vdb-printergateway-host
-      db_port: delphix-vdb-printergateway-port
-      db_username: delphix-vdb-printergateway-user
-      db_password: delphix-vdb-printergateway-password
-    schemas:
-      - public
-    
-  profiling:
+# workflow:
+#   common:
+#     application: printergateway
+#     environment: dev
+#     connector_type: postgres
+#     kv_name: kv2321831283821f
+#       db_host: delphix-vdb-printergateway-host
+#       db_port: delphix-vdb-printergateway-port
+#       db_username: delphix-vdb-printergateway-user
+#       db_password: delphix-vdb-printergateway-password
+#     schemas:
+#       - public
 
-  masking:
+#   profiling:
+
+#   masking:
