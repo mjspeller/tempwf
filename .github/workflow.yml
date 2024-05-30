@@ -1,25 +1,25 @@
-# Outside of this repository
-on:
-  push:
-    branches: ["feature/workflow"]
-  pull_request:
-    branches: ["feature/workflow"]
-  workflow_dispatch:
-    inputs:
-      ENV:
-        type: select
-        options:
-          - Prod
-          - DEV
-          - SIT
+# # Outside of this repository
+# on:
+#   push:
+#     branches: ["feature/workflow"]
+#   pull_request:
+#     branches: ["feature/workflow"]
+#   workflow_dispatch:
+#     inputs:
+#       ENV:
+#         type: select
+#         options:
+#           - Prod
+#           - DEV
+#           - SIT
 
-github actions checkout:
-  - name: Checkout
-    uses: actions/checkout@v4
-    with:
-      path: feature/workflow
+# github actions checkout:
+#   - name: Checkout
+#     uses: actions/checkout@v4
+#     with:
+#       path: feature/workflow
 
-  - name: call start
-    uses: ./ # call the start yaml
-    run: |
-      echo "hi call start!"
+#   - name: call start
+#     uses: ./ # call the start yaml
+#     run: |
+#       echo "hi call start!"
