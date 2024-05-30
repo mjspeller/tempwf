@@ -1,0 +1,28 @@
+name: Profile
+
+on:
+  workflow_call:
+    secrets:
+      PAT:
+        required: true
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hi
+        run: echo "This is the profile job"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Create file and write to it
+        run: |
+          python -c "with open('myfile.txt', 'w') as f: f.write('hi')"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Temp-File
+          path: |
+            myfile.txt
