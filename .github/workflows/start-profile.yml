@@ -30,13 +30,14 @@ jobs:
       - name: Run Script
         run: |
           pwd
-          ls -la
-          cat README.md
-          cd my-tools
-          ls -la
           echo ${{ github.workspace }}
           python --version
           python ${{ github.workspace }}/my-tools/scripts/my_script.py
+          ls -la
+          cd ${{ github.workspace }}/my-tools
+          ls -la
+          cd ${{ github.workspace }}/my-tools/scripts
+          ls -la
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
