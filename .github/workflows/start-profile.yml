@@ -43,4 +43,4 @@ jobs:
         with:
           name: Temp-File
           path: |
-            ${{ github.workspace }}/my-tools/scripts/myfile.txt
+            ${{ github.workspace }}/myfile.txt
