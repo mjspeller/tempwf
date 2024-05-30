@@ -15,6 +15,7 @@ jobs:
         with:
           message: |
             Hello world2 ! :wave:
+          pr_number: 1
 
 
 
