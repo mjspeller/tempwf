@@ -22,4 +22,4 @@ github actions checkout:
   - name: call start
     uses: ./ # call the start yaml
     run: |
-      echo "hi call start"
+      echo "hi call start!"
