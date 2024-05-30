@@ -19,10 +19,11 @@ jobs:
       - name: Run Script
         run: |
           pwd
-          python ./scripts/my_script.py
+          ls -la
+          python scripts/my_script.py
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Temp-File
           path: |
-            ./scripts/myfile.txt
+            scripts/myfile.txt
