@@ -23,6 +23,8 @@ jobs:
           cat README.md
           cd ..
           ls -la
+          cd ..
+          ls -la
           # python scripts/my_script.py
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
