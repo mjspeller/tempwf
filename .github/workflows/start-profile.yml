@@ -57,5 +57,5 @@ jobs:
           message: |
             Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-url }}
             Please download this file inspect it.
-            then commit it back to your app repo in the root as Maskme.csv
+            then commit it back to your app repo in the root as maskme.csv
           GITHUB_TOKEN: ${{ secrets.PAT }}
