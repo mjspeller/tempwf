@@ -2,8 +2,9 @@ name: Greet
 
 on:
   push:
-    branches:
-      - main
+    branches: ["feature/workflow"]
+  pull_request:
+    branches: ["feature/workflow"]
 
 jobs:
   greet:
