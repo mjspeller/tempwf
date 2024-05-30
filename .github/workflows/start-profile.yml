@@ -6,11 +6,20 @@ on:
       PAT:
         required: true
 
+env:
+  MASKING_REPO: mjspeller/tempwf
+
 jobs:
   profile:
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hi
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.MASKING_REPO }}
+          ref: main
+          token: ${{ secrets.PAT }}
+      - name: Profile
         run: echo "This is the profile job"
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
