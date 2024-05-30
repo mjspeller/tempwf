@@ -19,12 +19,12 @@ jobs:
           repository: ${{ env.MASKING_REPO }}
           ref: main
           token: ${{ secrets.PAT }}
-      - name: Profile
-        run: echo "This is the profile job"
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+      # - name: Profile
+      #   run: echo "This is the profile job"
+      # - uses: actions/checkout@v4
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.10'
       - name: Run Script
         run: |
           pwd
@@ -35,9 +35,9 @@ jobs:
           cd ..
           ls -la
           # python scripts/my_script.py
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Temp-File
-          path: |
-            scripts/myfile.txt
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: Temp-File
+      #     path: |
+      #       scripts/myfile.txt
