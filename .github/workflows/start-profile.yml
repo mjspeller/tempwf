@@ -36,10 +36,10 @@ jobs:
           ls -la
           echo ${{ github.workspace }}
           python --version
-          # python scripts/my_script.py
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: Temp-File
-      #     path: |
-      #       scripts/myfile.txt
+          python ${{ github.workspace }}/my-tools/scripts/my_script.py
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Temp-File
+          path: |
+            ${{ github.workspace }}/my-tools/scripts/myfile.txt
