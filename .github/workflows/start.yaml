@@ -1,11 +1,7 @@
 name: Greet
 
 on:
-  push:
-    branches: ["feature/workflow"]
-  pull_request:
-    branches: ["feature/workflow"]
-
+    workflow_dispatch:
 jobs:
   greet:
     runs-on: ubuntu-latest

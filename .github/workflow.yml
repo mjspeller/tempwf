@@ -12,14 +12,18 @@ on:
           - Prod
           - DEV
           - SIT
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: feature/workflow
 
-github actions checkout:
-  - name: Checkout
-    uses: actions/checkout@v4
-    with:
-      path: feature/workflow
-
-  - name: call start
-    uses: ./ # call the start yaml
-    run: |
-      echo "hi call start!"
+      - name: call start
+        uses: ./ # call the start yaml
+        run: |
+          echo "hi call start!"
+          - name: Call start.yaml
+            uses: ./start.yaml
