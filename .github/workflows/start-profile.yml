@@ -27,17 +27,9 @@ jobs:
           ref: main
           token: ${{ secrets.PAT }}
           path: ${{ github.workspace }}/my-tools
-      # - name: Run Script
-      #   run: |
-      #     pwd
-      #     echo ${{ github.workspace }}
-      #     python --version
-      #     python ${{ github.workspace }}/my-tools/scripts/my_script.py
-      #     ls -la
-      #     cd ${{ github.workspace }}/my-tools
-      #     ls -la
-      #     cd ${{ github.workspace }}/my-tools/scripts
-      #     ls -la
+      - name: Run Script
+        run: |
+          python ${{ github.workspace }}/my-tools/scripts/my_script.py
       - name: Upload Artifact
         id: artifact-upload-step
         uses: actions/upload-artifact@v4
@@ -58,4 +50,5 @@ jobs:
             Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-url }}
             Please download this file inspect it.
             then commit it back to your app repo in the root as maskme.csv
+          pr_number: 6
           GITHUB_TOKEN: ${{ secrets.PAT }}
