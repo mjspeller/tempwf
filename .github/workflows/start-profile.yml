@@ -39,8 +39,14 @@ jobs:
           cd ${{ github.workspace }}/my-tools/scripts
           ls -la
       - name: Upload Artifact
+        id: artifact-upload-step
         uses: actions/upload-artifact@v4
         with:
           name: Temp-File
           path: |
             ${{ github.workspace }}/myfile.txt
+          retention-days: 5
+      - name: Output artifact ID
+        run: |
+          echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+          echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
