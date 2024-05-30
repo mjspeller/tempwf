@@ -5,8 +5,15 @@ on:
   pull_request:
     branches: ["chore/try-pipeline"]
   workflow_dispatch:
+    inputs:
+      ENV:
+        type: select
+        options:
+          - Prod
+          - DEV
+          - SIT
 
-github actions checkout:
+github ations checkout:
   - name: Checkout
     uses: actions/checkout@v4
     with:
@@ -14,3 +21,6 @@ github actions checkout:
 
   - name: Run Delphix Profiling
     uses: ./ # When App Teams use this action - uses: FedEx/eai-3535610-delphix-continuous-compliance-automation
+    with:
+      ENV: ${{ inputs.ENV }}
+      csv-name: "my-csv-profiling"
