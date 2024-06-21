@@ -1,0 +1,14 @@
+name: delphix-masking
+
+on:
+  pull_request:
+    paths:
+      - '.delphix/**'
+    types: [synchronize]
+
+jobs:
+  check_for_changes:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print mask
+      run: echo "mask"
