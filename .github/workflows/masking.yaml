@@ -3,24 +3,12 @@ name: delphix-masking
 on:
   pull_request:
     paths:
-      - '.delphix/**'
+      - .delphix/poo.csv
+      directory: .delphix/
 
 jobs:
   check_for_changes:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Check for changes in .delphix
-        id: check_changes
-        run: |
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- .delphix | grep -qvE '^\s*$'; then
-            echo "::set-output name=changes_detected::true"
-          else
-            echo "::set-output name=changes_detected::false"
-          fi
-
-      - name: Print mask
-        if: steps.check_changes.outputs.changes_detected == 'true'
-        run: echo "Masking changes detected in .delphix folder"
+    - name: Print mask
+      run: echo "mask"
