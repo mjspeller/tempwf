@@ -1,13 +1,9 @@
 name: delphix-masking
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
     paths:
       - .delphix/poo.csv
-    directory: .delphix/
-
 jobs:
   check_for_changes:
     runs-on: ubuntu-latest
