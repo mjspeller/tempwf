@@ -3,8 +3,7 @@ name: delphix-masking
 on:
   pull_request:
     paths:
-      - '.delphix/**'
-    types: [synchronize]
+      - .delphix/poo.csv
 
 jobs:
   check_for_changes:
