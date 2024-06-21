@@ -1,0 +1,16 @@
+name: delphix-masking
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .delphix/poo.csv
+    directory: .delphix/
+
+jobs:
+  check_for_changes:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print mask
+      run: echo "mask"

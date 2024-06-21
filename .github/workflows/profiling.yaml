@@ -1,0 +1,15 @@
+name: delphix-profiling
+
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+
+jobs:
+  profile:
+    name: delphix-profiling
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print profile
+        run: echo "Profiling in progress..."

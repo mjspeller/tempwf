@@ -27,17 +27,9 @@ jobs:
           ref: main
           token: ${{ secrets.PAT }}
           path: ${{ github.workspace }}/my-tools
-      # - name: Run Script
-      #   run: |
-      #     pwd
-      #     echo ${{ github.workspace }}
-      #     python --version
-      #     python ${{ github.workspace }}/my-tools/scripts/my_script.py
-      #     ls -la
-      #     cd ${{ github.workspace }}/my-tools
-      #     ls -la
-      #     cd ${{ github.workspace }}/my-tools/scripts
-      #     ls -la
+      - name: Run Script
+        run: |
+          python ${{ github.workspace }}/my-tools/scripts/my_script.py
       - name: Upload Artifact
         id: artifact-upload-step
         uses: actions/upload-artifact@v4
@@ -46,7 +38,18 @@ jobs:
           path: |
             ${{ github.workspace }}/myfile.txt
           retention-days: 5
+          compression-level: 9
       - name: Output artifact ID
         run: |
           echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
           echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-url }}
+            Please download this file inspect it.
+            then commit it back to your app repo in the root as maskme.csv
+          pr_number: 6
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+876
