@@ -52,4 +52,3 @@ jobs:
             then commit it back to your app repo in the root as maskme.csv
           pr_number: 6
           GITHUB_TOKEN: ${{ secrets.PAT }}
-876
